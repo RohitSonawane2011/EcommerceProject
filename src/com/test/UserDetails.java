@@ -2,15 +2,17 @@ package com.test;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
 
 public class UserDetails {
-
-	public static void main(String[] args) throws Exception {
+	
+	public UserDetails addUserDetails() throws Exception {
+		
 		Connection con = null;
 		Statement stmt1 = null;
-
+		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver"); // Driver Class Loading
 			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ecommerce", "root", "root");
@@ -51,14 +53,9 @@ public class UserDetails {
 		} finally {
 
 			con.close();
-
 		}
-
-	}
-
-	private static void executeUpdate() {
-		// TODO Auto-generated method stub
-
+				
+		return new UserDetails();
 	}
 
 }
